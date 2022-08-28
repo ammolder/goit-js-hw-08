@@ -45,4 +45,6 @@ const parseMasseg = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
 // === { email: '', message: '' }
 // ? (refs.button.disabled = true)
 // : (refs.button.disabled = false);
-console.log(parseMessage.email, parseMessage.message);
+
+console.log('parseMessage.email :', parseMessage.email);
+console.log('parseMessage.message :', parseMessage.message);
