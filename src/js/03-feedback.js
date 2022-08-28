@@ -32,16 +32,17 @@ function onFormSubmit(e) {
 }
 
 function populateTextarea() {
-  const savedMessage = localStorage.getItem(FEEDBACK_KEY);
-  const parseMessage = JSON.parse(savedMessage);
-  if (savedMessage) {
+  const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
+  if (localStorage.getItem(FEEDBACK_KEY)) {
     refs.input.value = parseMessage.email;
     refs.textarea.value = parseMessage.message;
     formData.email = parseMessage.email;
     formData.message = parseMessage.message;
   }
 }
-localStorage.getItem(FEEDBACK_KEY) === { email: '', message: '' }
-  ? (refs.button.disabled = true)
-  : (refs.button.disabled = false);
-console.log('savedMessage', localStorage.getItem(FEEDBACK_KEY));
+const parseMasseg = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
+// if (parseMasseg.email)
+// === { email: '', message: '' }
+// ? (refs.button.disabled = true)
+// : (refs.button.disabled = false);
+console.log(parseMessage.email, parseMessage.massege);
