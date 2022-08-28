@@ -54,10 +54,10 @@ function populateTextarea() {
 function isActiveButton(e) {
   const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
   if (localStorage.getItem(FEEDBACK_KEY)) {
-    if (parseMessage.email === '' || parseMessage.message === '') {
+    if (refs.email === '' || refs.message === '') {
       refs.button.disabled = true;
     }
-    if (parseMessage.email !== '' || parseMessage.message !== '') {
+    if (refs.email !== '' || refs.message !== '') {
       refs.button.disabled = false;
     }
   }
