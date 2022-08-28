@@ -16,6 +16,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onLocalStorageSet, 500));
 
 const isActiveButton = () => {
+  const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
   if (localStorage.getItem(FEEDBACK_KEY)) {
     if (parseMessage.email === '' || parseMessage.message === '') {
       refs.button.disabled = true;
@@ -55,7 +56,7 @@ function populateTextarea() {
   }
 }
 // function isActiveButton(e) {
-//   const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
+// const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
 //   if (localStorage.getItem(FEEDBACK_KEY)) {
 //     if (parseMessage.email === '' || parseMessage.message === '') {
 //       refs.button.disabled = true;
