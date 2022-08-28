@@ -14,17 +14,20 @@ const formData = {
 };
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onLocalStorageSet, 500));
-refs.input.addEventListener('input', isActiveButton);
-refs.textarea.addEventListener('input', isActiveButton);
 
-// const isActiveButton = () => {
-//   const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
-//   if (parseMessage.email === '' || parseMessage.message === '') {
-//     refs.button.disabled = true;
-//   }
+const isActiveButton = () => {
+  if (localStorage.getItem(FEEDBACK_KEY)) {
+    if (parseMessage.email === '' || parseMessage.message === '') {
+      refs.button.disabled = true;
+    }
+    if (parseMessage.email !== '' || parseMessage.message !== '') {
+      refs.button.disabled = false;
+    }
+  }
+};
 // };
 
-// setInterval(isActiveButton, 1000);
+setInterval(isActiveButton, 1000);
 
 populateTextarea();
 
@@ -54,10 +57,10 @@ function populateTextarea() {
 function isActiveButton(e) {
   const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
   if (localStorage.getItem(FEEDBACK_KEY)) {
-    if (refs.email === '' || refs.message === '') {
+    if (parseMessage.email === '' || parseMessage.message === '') {
       refs.button.disabled = true;
     }
-    if (refs.email !== '' || refs.message !== '') {
+    if (parseMessage.email !== '' || parseMessage.message !== '') {
       refs.button.disabled = false;
     }
   }
