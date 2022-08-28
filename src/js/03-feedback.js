@@ -26,7 +26,6 @@ function onLocalStorageSet(e) {
 
 function onFormSubmit(e) {
   e.preventDefault();
-
   console.log(formData);
   e.currentTarget.reset();
   localStorage.removeItem(FEEDBACK_KEY);
@@ -35,8 +34,8 @@ function onFormSubmit(e) {
 }
 
 function populateTextarea() {
-  const parseMessage = JSON.parse(savedMessage);
   const savedMessage = localStorage.getItem(FEEDBACK_KEY);
+  const parseMessage = JSON.parse(savedMessage);
   if (savedMessage) {
     refs.input.value = parseMessage.email;
     refs.textarea.value = parseMessage.message;
