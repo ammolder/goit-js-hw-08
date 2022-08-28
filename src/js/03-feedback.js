@@ -41,7 +41,7 @@ function populateTextarea() {
   }
 }
 const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
-if ((parseMessage.email = '') || (parseMessage.message = '')) {
+if ((parseMessage.email = '')) {
   refs.button.disabled = true;
 }
 
@@ -49,4 +49,4 @@ if ((parseMessage.email = '') || (parseMessage.message = '')) {
 // ? (refs.button.disabled = true)
 // : (refs.button.disabled = false);
 
-console.log('email', parseMessage.email, 'message', parseMessage.message);
+console.log(parseMessage.email, parseMessage.message);
