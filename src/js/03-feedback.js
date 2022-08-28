@@ -40,7 +40,7 @@ function populateTextarea() {
     formData.message = parseMessage.message;
   }
 }
-const parseMassege = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
+const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
 // if (parseMasseg.email)
 // === { email: '', message: '' }
 // ? (refs.button.disabled = true)
