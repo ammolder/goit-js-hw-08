@@ -39,17 +39,13 @@ function populateTextarea() {
     formData.email = parseMessage.email;
     formData.message = parseMessage.message;
   }
+  if (parseMessage.email === '' || parseMessage.message === '') {
+    refs.button.disabled = true;
+  }
 }
-const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
-if (parseMessage.email === '' || parseMessage.message === '') {
-  refs.button.disabled = true;
-}
+// const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
 
-// === { email: '', message: '' }
-// ? (refs.button.disabled = true)
-// : (refs.button.disabled = false);
+// console.log('parseMessage.email :', parseMessage.email);
+// console.log('parseMessage.message :', parseMessage.message);
 
-console.log('parseMessage.email :', parseMessage.email);
-console.log('parseMessage.message :', parseMessage.message);
-
-console.log('refs.input.value nic', refs.input.value);
+// console.log('refs.input.value nic', refs.input.value);
