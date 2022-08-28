@@ -14,7 +14,8 @@ const formData = {
 };
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onLocalStorageSet, 500));
-refs.form.addEventListener('input', isActiveButton);
+refs.input.addEventListener('input', isActiveButton);
+refs.textarea.addEventListener('input', isActiveButton);
 
 // const isActiveButton = () => {
 //   const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
