@@ -33,11 +33,10 @@ function onFormSubmit(e) {
   formData.email = '';
   formData.message = '';
 }
-const parseMessage = JSON.parse(savedMessage);
-const savedMessage = localStorage.getItem(FEEDBACK_KEY);
 
 function populateTextarea() {
-  // const parseMessage = JSON.parse(savedMessage);
+  const parseMessage = JSON.parse(savedMessage);
+  const savedMessage = localStorage.getItem(FEEDBACK_KEY);
   if (savedMessage) {
     refs.input.value = parseMessage.email;
     refs.textarea.value = parseMessage.message;
