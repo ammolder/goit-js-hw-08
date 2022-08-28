@@ -22,7 +22,7 @@ const isActiveButton = () => {
   }
 };
 
-setInterval(isActiveButton(), 1000);
+setInterval(isActiveButton, 1000);
 
 populateTextarea();
 
