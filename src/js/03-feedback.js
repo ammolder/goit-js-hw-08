@@ -51,3 +51,5 @@ if (parseMessage.email === null) {
 
 console.log('parseMessage.email :', parseMessage.email);
 console.log('parseMessage.message :', parseMessage.message);
+
+console.log('refs.input.value :', refs.input.value);
