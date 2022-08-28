@@ -12,15 +12,10 @@ const formData = {
   email: '',
   message: '',
 };
-const isActiveButton = () => {
-  if (parseMessage.email === '' || parseMessage.message === '') {
-    refs.button.disabled = true;
-  }
-};
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onLocalStorageSet, 500));
 
-setInterval(isActiveButton, 1000);
+setInterval(isActiveButton(), 1000);
 
 populateTextarea();
 
@@ -45,5 +40,11 @@ function populateTextarea() {
     refs.textarea.value = parseMessage.message;
     formData.email = parseMessage.email;
     formData.message = parseMessage.message;
+  }
+}
+
+function isActiveButton() {
+  if (parseMessage.email === '' || parseMessage.message === '') {
+    refs.button.disabled = true;
   }
 }
