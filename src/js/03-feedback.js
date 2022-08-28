@@ -41,7 +41,7 @@ function populateTextarea() {
     formData.message = parseMessage.message;
   }
 }
-localStorage.getItem(FEEDBACK_KEY) === "{ email: '', message: ''}"
+localStorage.getItem(FEEDBACK_KEY) === { email: '', message: '' }
   ? (refs.button.disabled = true)
   : (refs.button.disabled = false);
 console.log('savedMessage', localStorage.getItem(FEEDBACK_KEY));
