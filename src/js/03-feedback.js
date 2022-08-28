@@ -30,9 +30,9 @@ function onFormSubmit(e) {
   formData.email = '';
   formData.message = '';
 }
-const savedMessage = localStorage.getItem(FEEDBACK_KEY);
 
 function populateTextarea() {
+  const savedMessage = localStorage.getItem(FEEDBACK_KEY);
   const parseMessage = JSON.parse(savedMessage);
   if (savedMessage) {
     refs.input.value = parseMessage.email;
@@ -41,7 +41,7 @@ function populateTextarea() {
     formData.message = parseMessage.message;
   }
 }
-savedMessage === "{ email: '', message: ''}"
+localStorage.getItem(FEEDBACK_KEY) === "{ email: '', message: ''}"
   ? (refs.button.disabled = true)
   : (refs.button.disabled = false);
-console.log('savedMessage', savedMessage);
+console.log('savedMessage', localStorage.getItem(FEEDBACK_KEY));
