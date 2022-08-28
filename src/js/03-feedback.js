@@ -57,5 +57,8 @@ function isActiveButton(e) {
     if (parseMessage.email === '' || parseMessage.message === '') {
       refs.button.disabled = true;
     }
+    if (parseMessage.email !== '' || parseMessage.message !== '') {
+      refs.button.disabled = false;
+    }
   }
 }
