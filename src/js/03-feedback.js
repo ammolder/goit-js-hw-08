@@ -12,7 +12,8 @@ const formData = {
   email: '',
   message: '',
 };
-refs.form.addEventListener('submit', onFormSubmit);
+refs.form.addEventListener('input', onFormSubmit);
+refs.form.addEventListener('submit', isActiveSubmit);
 refs.form.addEventListener('input', throttle(onLocalStorageSet, 500));
 
 const isActiveButton = () => {
@@ -31,13 +32,11 @@ const isActiveButton = () => {
 setInterval(isActiveButton, 1000);
 
 populateTextarea();
-
 function onLocalStorageSet(e) {
   formData[e.target.name] = e.target.value;
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
-  notSubmitEmptyForm();
 }
-notSubmitEmptyForm();
+
 function onFormSubmit(e) {
   e.preventDefault();
   console.log(formData);
