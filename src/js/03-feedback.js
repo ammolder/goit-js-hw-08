@@ -35,8 +35,9 @@ populateTextarea();
 function onLocalStorageSet(e) {
   formData[e.target.name] = e.target.value;
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
+  notSubmitEmptyForm();
 }
-
+notSubmitEmptyForm();
 function onFormSubmit(e) {
   e.preventDefault();
   console.log(formData);
@@ -55,14 +56,11 @@ function populateTextarea() {
     formData.message = parseMessage.message;
   }
 }
-// function isActiveButton(e) {
-// const parseMessage = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
-//   if (localStorage.getItem(FEEDBACK_KEY)) {
-//     if (parseMessage.email === '' || parseMessage.message === '') {
-//       refs.button.disabled = true;
-//     }
-//     if (parseMessage.email !== '' || parseMessage.message !== '') {
-//       refs.button.disabled = false;
-//     }
-//   }
-// }
+
+function notSubmitEmptyForm() {
+  if (formData.email !== '' && formData.message !== '') {
+    refs.button.disabled = false;
+  } else {
+    refs.button.disabled = true;
+  }
+}
